@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Startseite">
+    <meta name="author" content="Michael und Thore">
+    <meta name="keywords" content="html, lernen, studium">
+
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>Startseite</title>
+</head>
+
+<body>
+    <div>
+        <header>
+            <picture>
+                <source media="(min-width: 1470px)" srcset="content/pictures/welcome_one.jpeg">
+                <source media="(min-width: 1280px)" srcset="content/pictures/Hello_There.jpeg">
+                <source media="(min-width: 640px)" srcset="content/pictures/hello_world.jpeg">
+                <img src="content/pictures/standart_picture.jpg.webp" alt="Flowers" style="width:auto;">
+            </picture>
+        </header>
+    </div>
+    <div>
+        <section class="header_links">
+            <a href="index.html">
+                <img src="content/pictures/home-button-svgrepo-com.svg" alt="Startseite" width="75" height="75">
+            </a>
+        </section>
+    
+        <section class="header_links">
+            <a href="NewProjekt.html">Neues Projekt</a>
+        </section>
+        <section class="header_links">
+            <a href="Projects.html">Projekt öffnen</a>
+        </section>
+
+        <section class="description">
+            <h1>Welcome auf unserer Seite 
+            <br> Viel Spaß </h1>
+            <p>Hier ist eine tolle erklärung unserer Seite mit allen Features</p>
+            <video width="320" height="240" autoplay>
+                <source src="content/videos/space_video.mp4" type="video/mp4">
+                Your browser does not support the video tag
+            </video>
+        </section>
+    </div>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <td>Current Projects</td>
+                    <td colspan="2">Sorted by</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Project 1</td>
+                    <td>Due 08.05.2026</td>
+                    <td>Projektzeit: 24h</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>Project 2</td>
+                    <td>Due 29.05.2026</td>
+                    <td>Projektzeit: 30h</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>Project 3</td>
+                    <td>Due 20.09.2026</td>
+                    <td>Projektzeit: 10</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer class="end">
+        <div>
+            <form action="Projects.html"
+            method="post">
+                <label for="benutzername">Benutzername</label>
+                <input type="text" id="benutzername" name="benutzername">
+                <br>
+
+                <label for="passwort">Passwort</label>
+                <input type="text" id="passwort" name="passwort">
+                <br>
+                <button class="button" type="submit">Anmelden</button>
+            </form>   
+            <a href="Register.html">Registrieren</a>       
+        </div>
+        <div>
+            <section>
+                <nav>
+                    <ul>
+                        <li><a href="https://google.com">Impressum</a></li>
+                        <li><a href="https://google.com">Datenschutz</a></li>
+                        <li><a href="https://google.com">Haftungsausschluss</a></li>
+                        <li><a href="https://google.com">Copyright</a></li>
+                        <li><a href="#top">Zum Anfang</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>

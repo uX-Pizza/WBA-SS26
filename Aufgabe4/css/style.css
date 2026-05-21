@@ -1,0 +1,72 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+    padding-bottom: 80px;
+}
+
+div {
+    width: 100%;
+    height: 200px;
+}
+
+a:link,
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: green;
+}
+
+.header_links {
+    width: 100px;
+    height: 100px;
+    border: 5px solid grey;
+    border-radius: 10px;
+    float:left; 
+    display:inline;
+    text-align: center; 
+}
+
+.description {
+    position:absolute;
+    bottom: 30px;
+}
+
+table , td, th{
+    border: 1px solid #c4dcf3;
+    border-left: 0;
+    border-right: 0;
+    border-collapse: collapse;
+    position: relative;
+    left: 5px;
+}
+
+td, th {
+  padding: 10px;
+}
+
+th, tfoot {
+    color: white;
+}
+
+thead , tfoot {
+    background-color: #427fef;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #eef7ff
+}
+
+.end {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+}
