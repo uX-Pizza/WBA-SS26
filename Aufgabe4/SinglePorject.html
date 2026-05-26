@@ -81,10 +81,8 @@
     </section>
 
     <section class="comments">
-        <button class="show-hide" id="show-hide-comments" onclick="toggleComments()" onkeydown="handleKeyDown(event)" aria-expanded="false">Show Comments
-        </button>
-        <div class="comment-wrapper">
-            <font size="6">Kommentar hinzufügen</font>
+        <fieldset class="comment-wrapper">
+            <legend size="6">Kommentar hinzufügen</legend>
 
             <form action="SendToPage.html" class="comment-form">
                 <div class="flex-pair">
@@ -100,13 +98,13 @@
                     <input type="submit" value="Kommentar abschicken">
                 </div>
             </form>
-        </div>
+        </fieldset>
     </section>
 
     <footer class="end">
-        <div>
-            <form action="Projects.html"
-            method="post">
+        <fieldset>
+            <legend>Anmelden</legend>
+            <form action="Projects.html" >
                 <label for="benutzername">Benutzername</label>
                 <input type="text" id="benutzername" name="benutzername">
                 <br>
@@ -117,7 +115,7 @@
                 <button class="button" type="submit">Anmelden</button>
             </form>   
             <a href="Register.html">Registrieren</a>       
-        </div>
+        </fieldset>
         <div>
             <section>
                 <nav>
