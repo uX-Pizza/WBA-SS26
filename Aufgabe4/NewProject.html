@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Projects" content="A list of all Projects">
+    <meta name="description" content="declare a new project">
     <meta name="author" content="Michael und Thore">
     <meta name="keywords" content="html, lernen, studium">
 
 
-    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
-    <title>Projects</title>
+    <title>NewProject</title>
+    <!-- <link rel="stylesheet" href="css/NewProject.css"> -->
 </head>
 <body>
     <div>
@@ -23,38 +23,51 @@
         </header>
     </div>
 
-    <section class="header_links">
-        <a href="index.html">
-            <img src="content/pictures/home-button-svgrepo-com.svg" alt="Startseite" width="75" height="75">
-        </a>
-    </section>
- <div>
-    <ul>
-           <li>
-               <tbody>
-                    <tr>
-                       <td>Projekt 1</td>
-                       <td>Das ist ein wunderschönes Projekt</td>
-                       <td><a href="SingleProject.html">Link zur Projektseite</a></td>
-                   </tr>
-               </tbody>
-           </li>
-       <li>
-           <tr>
-               <td>Projekt 2</td>
-               <td>Das ist ein wunderschönes Projekt</td>
-               <td><a href="SingleProject.html">Link zur Projektseite</a></td>
-           </tr>
-       </li>
-       <li>
-            <tr>
-               <td>Projekt 3</td>
-               <td>Das ist ein wunderschönes Projekt</td>
-               <td><a href="SingleProject.html">Link zur Projektseite</a></td>
-           </tr>
-       </li>
-    </ul>
- </div>
+    <div>
+        <section class="header_links">
+            <a href="index.html">
+                <img src="content/pictures/home-button-svgrepo-com.svg" alt="Startseite" width="75" height="75">
+            </a>
+        </section>
+
+        <section class="header_links">
+            <a href="Projects.html">Projekt öffnen</a>
+        </section>
+
+    <form action="SendToPage.html"
+    method="post">
+        <label for="projekt_name">Projekt Name</label>
+        <input type="text" id="projekt_name" name="projekt_name">
+        <br>
+
+        <label for="startdatum">Startdatum</label>
+        <input type="date" id="startdatum" name="startdatum">
+        <br>
+        <label for="enddatum">Enddatum</label>
+        <input type="date" id="enddatum" name="enddatum">
+        <br>
+
+        <label for="Kurzbeschreibung">Kurzbeschreibung</label>
+        <input type="text" id="kurzbeschreibung" name="kurzbeschreibung">
+        <br>
+
+        <label for="Langbeschreibung">Langbeschreibung</label>
+        <input type="text" id="langbeschreibung" name="langbeschreibung">
+        <br>
+
+        <label for="Projekziele">Projekt Ziele</label>
+        <input type="text" id="projekt_ziel" name="projekt_ziel">
+        <br>
+
+        <label for="Projekziele">Logo Hochladen</label>
+        <input type="file" id="myFile" name="filename">
+        <br>
+
+        <button class="button" type="submit">Submit</button>
+    </form>
+    <a href="SendToPage.html">Daten Hier</a>
+
+
     <footer class="end">
         <fieldset>
             <legend>Anmelden</legend>
@@ -84,5 +97,5 @@
             </section>
         </div>
     </footer>
-    </body>
+</body>
 </html>
