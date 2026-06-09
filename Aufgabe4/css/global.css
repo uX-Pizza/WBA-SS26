@@ -1,0 +1,155 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5FFFA;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: #ffffff;
+    z-index: 1000;
+}
+
+.header_links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    box-sizing: border-box;
+}
+
+.header_links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 150%;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header_links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #87CEFA
+}
+
+.header_links a + a {
+    margin-left: 1rem;
+}
+
+.header_links a img {
+    display: block;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+header picture {
+    flex: 1 1 60%;
+    min-width: 250px;
+}
+
+header picture img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.login-header {
+    flex: 0 0 320px;
+    min-width: 260px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 1rem;
+    color: #87CEFA;
+}
+
+.login-header legend {
+    color: #87CEFA;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    text-align: right;
+}
+
+.login-form label {
+    width: 100%;
+}
+
+.login-form input {
+    width: 100%;
+    max-width: 260px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: white;
+    color: black;
+}
+
+.login-header .button {
+    width: 100%;
+    max-width: 260px;
+    color: #87CEFA;
+}
+
+.login-register {
+    color: #87CEFA;
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-decoration: none;
+}
+
+.login-register:hover {
+    text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 0;
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+    box-sizing: border-box;
+    height: auto;
+}
+
+
+footer nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #87CEFA;
+}
+

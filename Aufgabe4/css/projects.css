@@ -1,0 +1,39 @@
+.content {
+    padding: 5px;
+}
+
+.content td.title {
+    font-size: 2rem;
+}
+
+footer {
+    height: auto;
+    padding: 0.5rem 0;
+    line-height: 1.2;
+}
+
+footer.end {
+    padding: 0.5rem 0;
+    position: fixed;
+    bottom: 0;
+}
+
+footer.end nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer.end a {
+    color: white;
+    text-decoration: none;
+}
+
+footer.end a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #87CEFA;
+}

@@ -6,20 +6,33 @@
     <meta name="Projects" content="A list of all Projects">
     <meta name="author" content="Michael und Thore">
     <meta name="keywords" content="html, lernen, studium">
-
-
-    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/projects.css">
     <title>Projects</title>
 </head>
 <body>
     <div>
         <header>
             <picture>
-                <source media="(min-width: 1920px)" srcset="content/pictures/welcome_one.jpeg">
-                <source media="(min-width: 1280px)" srcset="content/pictures/Hello_There.jpeg">
-                <source media="(min-width: 640px)" srcset="content/pictures/hello_world.jpeg">
-                <img src="content/pictures/standart_picture.jpg.webp" alt="Flowers" style="width:auto;">
+                <source media="(min-width: 1920px)" srcset="content/pictures/header1920x200.png">
+                <source media="(min-width: 1280px)" srcset="content/pictures/header1280x133png">
+                <source media="(min-width: 640px)" srcset="content/pictures/header640x67.png">
+                <source media="(min-width: 320px)" srcset="content/pictures/header320x34.png">
+                <img src="content/pictures/header1920x200.png" alt="Here is a picture" style="width:auto;">
             </picture>
+            <fieldset class="login-header">
+                <legend>Anmelden</legend>
+                <form class="login-form" action="Projects.html">
+                    <label for="benutzername">Benutzername</label>
+                    <input type="text" id="benutzername" name="benutzername">
+
+                    <label for="passwort">Passwort</label>
+                    <input type="password" id="passwort" name="passwort">
+
+                    <button class="button" type="submit">Anmelden</button>
+                </form>
+                <a class="login-register" href="Register.html">Registrieren</a>
+            </fieldset>
         </header>
     </div>
 
@@ -33,7 +46,7 @@
            <li>
                <tbody>
                     <tr>
-                       <td>Projekt 1</td>
+                       <td class="title">Projekt 1</td>
                        <td>Das ist ein wunderschönes Projekt</td>
                        <td><a href="SingleProject.html">Link zur Projektseite</a></td>
                    </tr>
@@ -41,14 +54,14 @@
            </li>
        <li>
            <tr>
-               <td>Projekt 2</td>
+               <td class="title"> Projekt 2 </td>
                <td>Das ist ein wunderschönes Projekt</td>
                <td><a href="SingleProject.html">Link zur Projektseite</a></td>
            </tr>
        </li>
        <li>
             <tr>
-               <td>Projekt 3</td>
+               <td class="title">Projekt 3</td>
                <td>Das ist ein wunderschönes Projekt</td>
                <td><a href="SingleProject.html">Link zur Projektseite</a></td>
            </tr>
@@ -56,20 +69,6 @@
     </ul>
  </div>
     <footer class="end">
-        <fieldset>
-            <legend>Anmelden</legend>
-            <form action="Projects.html">
-                <label for="benutzername">Benutzername</label>
-                <input type="text" id="benutzername" name="benutzername">
-                <br>
-
-                <label for="passwort">Passwort</label>
-                <input type="password" id="passwort" name="passwort">
-                <br>
-                <button class="button" type="submit">Anmelden</button>
-            </form>   
-            <a href="Register.html">Registrieren</a>       
-        </fieldset>
         <div>
             <section>
                 <nav>
@@ -78,9 +77,10 @@
                         <li><a href="https://google.com">Datenschutz</a></li>
                         <li><a href="https://google.com">Haftungsausschluss</a></li>
                         <li><a href="https://google.com">Copyright</a></li>
-                        <li><a href="#top">Zum Anfang</a></li>
+                        <a id="back-to-top" href="#top">Zum Anfang</a>
                     </ul>
                 </nav>
+
             </section>
         </div>
     </footer>
