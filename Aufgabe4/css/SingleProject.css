@@ -5,7 +5,7 @@
 }
 
 :root{
-    --accent-color: #0ea5e9; /* Akzent- / Hover-Farbe */
+    --accent-color: #87CEFA; /* Akzent- / Hover-Farbe (einheitlich mit Header) */
 }
 
 /* Layout: Menü + Inhalt nebeneinander */
@@ -34,6 +34,7 @@
     display: block;
     padding: 0.6rem 0.9rem;
     color: #ffffff;
+    font-size: 1.5em;
     text-decoration: none;
 }
 
@@ -97,6 +98,11 @@ a{
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
     font-weight: 600;
+}
+
+.title-badge{
+    font-size: 2em;
+    font-family: Georgia, 'Times New Roman', serif;
 }
 
 /* Kommentarformular: nur Rahmen hervorheben, bei Fokus weißer Hintergrund */
