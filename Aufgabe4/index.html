@@ -16,10 +16,14 @@
         <header>
             <picture>
                 <source media="(min-width: 1920px)" srcset="content/pictures/header1920x200.png">
-                <source media="(min-width: 1280px)" srcset="content/pictures/header1280x133png">
+                <source media="(min-width: 1280px)" srcset="content/pictures/header1280x133.png">
                 <source media="(min-width: 640px)" srcset="content/pictures/header640x67.png">
                 <source media="(min-width: 320px)" srcset="content/pictures/header320x34.png">
-                <img src="content/pictures/header1920x200.png" alt="Here is a picture" style="width:auto;">
+                <img src="content/pictures/header1920x200.png" 
+                        srcset="content/pictures/header1280x133.png 1280w,
+                            content/pictures/header640x67.png 640w,
+                            content/pictures/header320x34.png 320w"
+                            alt="Header">
             </picture>
             <fieldset class="login-header">
                 <legend>Anmelden</legend>
