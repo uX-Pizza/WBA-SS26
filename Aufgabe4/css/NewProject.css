@@ -1,18 +1,112 @@
-    .button {
-    border: none;
+footer {
+    height: auto;
+    padding: 0.5rem 0;
+    line-height: 1.2;
+}
+
+footer.end {
+    padding: 0.5rem 0;
+    position: fixed;
+    bottom: 0;
+}
+
+footer.end nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer.end a {
     color: white;
-    background-color: lightblue;
-    width: 80px;
-    height: 30px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
-    transition-duration: 0.4s;
-    font-size: 16px;
-    margin: 4px 2px;
+}
+
+footer.end a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #87CEFA;
+}
+
+/* Inline edit form styles (no JS) */
+.inline-edit{
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    max-width: 1000px;
+    margin: 0 auto 2rem auto;
+}
+
+.inline-edit .form-row{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.inline-edit .form-row.fullwidth{
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.inline-edit label{
+    min-width: 120px;
+    font-weight: 600;
+}
+
+.inline-edit input[type="text"],
+.inline-edit input[type="date"],
+.inline-edit textarea{
+    flex: 1 1 auto;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+.inline-edit textarea{
+    width: 100%;
+}
+
+.inline-edit input:focus, .inline-edit textarea:focus{
+    background: #ffffff;
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.12);
+}
+
+.logo-picker{
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+}
+
+.logo-picker img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+#logoInput{
+    display: none;
+}
+
+@media (max-width: 700px){
+    .inline-edit .form-row{
+        flex-direction: column;
+        align-items: stretch;
     }
-    .button:hover {
-        background-color: #008CBA;
-        color: white;
-    }
+    .inline-edit label{ min-width: auto; }
+}
+
+#kurzbeschreibung { width: 85%; }
+#langbeschreibung { width: 85%; }

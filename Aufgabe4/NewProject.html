@@ -9,7 +9,9 @@
 
 
     <title>NewProject</title>
-    <!-- <link rel="stylesheet" href="css/NewProject.css"> -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/SingleProject.css">
+    <link rel="stylesheet" href="css/NewProject.css">
 </head>
 <body>
     <div>
@@ -48,37 +50,57 @@
             <a href="Projects.html">Projekt öffnen</a>
         </section>
 
-    <form action="SendToPage.html"
-    method="post">
-        <label for="projekt_name">Projekt Name</label>
-        <input type="text" id="projekt_name" name="projekt_name">
-        <br>
+        <div class="layout">
+            <main class="content">
+                <form class="inline-edit" action="SendToPage.html" method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <label for="projekt_name">Projekt Titel</label>
+                        <input type="text" id="projekt_name" name="projekt_name">
 
-        <label for="startdatum">Startdatum</label>
-        <input type="date" id="startdatum" name="startdatum">
-        <br>
-        <label for="enddatum">Enddatum</label>
-        <input type="date" id="enddatum" name="enddatum">
-        <br>
+                        <label for="logoInput" class="logo-picker">
+                            <img src="content/pictures/placeholder.png" alt="Logo Placeholder">
+                        </label>
+                        <input type="file" id="logoInput" name="logo" accept="image/*" />
+                    </div>
 
-        <label for="Kurzbeschreibung">Kurzbeschreibung</label>
-        <input type="text" id="kurzbeschreibung" name="kurzbeschreibung">
-        <br>
+                    <div class="form-row dates">
+                        <div>
+                            <label for="startdatum">Startdatum</label>
+                            <input type="date" id="startdatum" name="startdatum">
+                        </div>
+                        <div>
+                            <label for="enddatum">Enddatum</label>
+                            <input type="date" id="enddatum" name="enddatum">
+                        </div>
+                    </div>
 
-        <label for="Langbeschreibung">Langbeschreibung</label>
-        <input type="text" id="langbeschreibung" name="langbeschreibung">
-        <br>
+                    <div class="form-row fullwidth">
+                        <label for="kurzbeschreibung">Kurzbeschreibung</label>
+                        <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3"></textarea>
+                    </div>
 
-        <label for="Projekziele">Projekt Ziele</label>
-        <input type="text" id="projekt_ziel" name="projekt_ziel">
-        <br>
+                    <div class="form-row fullwidth">
+                        <label for="langbeschreibung">Langbeschreibung</label>
+                        <textarea id="langbeschreibung" name="langbeschreibung" rows="6"></textarea>
+                    </div>
 
-        <label for="Projekziele">Logo Hochladen</label>
-        <input type="file" id="myFile" name="filename">
-        <br>
+                    <div class="form-row goals">
+                        <div>
+                            <label for="ziel1">Projektziel 1</label>
+                            <input type="text" id="ziel1" name="ziel1">
+                        </div>
+                        <div>
+                            <label for="ziel2">Projektziel 2</label>
+                            <input type="text" id="ziel2" name="ziel2">
+                        </div>
+                    </div>
 
-        <button class="button" type="submit">Submit</button>
-    </form>
+                    <div class="form-row">
+                        <button class="button" type="submit">Projekt anlegen</button>
+                    </div>
+                </form>
+            </main>
+        </div>
     <a href="SendToPage.html">Daten Hier</a>
 
 
