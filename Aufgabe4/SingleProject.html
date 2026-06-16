@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/SingleProject.css" />
-
+    <script src="javaScript/models.js/Artefakt.js"></script>
     <title>Current Project</title>
   </head>
   <body>
@@ -55,11 +55,16 @@
     </div>
     <section class="header_links">
       <a href="index.html">
-              <img src="content/pictures/home-button-svgrepo-com.svg" alt="Startseite" width="75" height="75">
-            </a>
-            <a href="NewProject.html">Neues Projekt</a>
+        <img
+          src="content/pictures/home-button-svgrepo-com.svg"
+          alt="Startseite"
+          width="75"
+          height="75"
+        />
+      </a>
+      <a href="NewProject.html">Neues Projekt</a>
 
-            <a href="Projects.html">Projekt öffnen</a>
+      <a href="Projects.html">Projekt öffnen</a>
     </section>
 
     <div class="project-header-container">
@@ -111,6 +116,40 @@
         <li>Ziel: Minimaler Zeitaufwand</li>
       </ol>
     </section>
+    <div>
+      <fieldset class="addTask">
+        <legend>Task hinzufügen</legend>
+        <form class="" onsubmit="return addTask();">
+          <label for="taskname">Task Name</label>
+          <input type="text" id="taskname" name="taskname" />
+
+          <label for="time">Zeit</label>
+          <input type="number" id="time" name="time" />
+
+          <button class="button" type="submit">Hinzufügen</button>
+        </form>
+      </fieldset>
+    </div>
+
+    <section class="worktime">
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Aufwand</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Overall:</th>
+            <td id="overall-time">0h</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
 
     <section class="comments">
       <fieldset class="comment-wrapper">
@@ -160,5 +199,6 @@
         </section>
       </div>
     </footer>
+    <script src="javaScript/models.js/Artefakt.js"></script>
   </body>
 </html>
