@@ -1,20 +1,37 @@
-class Relations{
-    relationObject;
-    workgroup_id;
-    constructor(relationObject,workgroup_id ){
-        this.relationObject = relationObject;
-        this.workgroup_id = workgroup_id;
+export class ProjektAufgabenbereich{
+    constructor(projektId, aufgabenbereichId){
+        this.projektId = projektId;
+        this.aufgabenbereichId = aufgabenbereichId;
     }
-
+    toObject(){
+        return {
+            projektId: this.projektId,
+            aufgabenbereichId: this.aufgabenbereichId
+        };
+    }
+    static fromObject(obj){
+        return new ProjektAufgabenbereich(obj.projektId, obj.aufgabenbereichId);
+    }
 }
-class RelationsArtefackt{
-    relationObject;
-    workgroup_id;
-    estimated_time;
-    constructor(relationObject,workgroup_id, estimated_time){
-        this.relationObject = relationObject;
-        this.workgroup_id = workgroup_id;
-        this.estimated_time = estimated_time;
-    }
 
+export class ProjektArtefakt{
+    constructor(projektId, artefaktId, actualHours){
+        this.projektId = projektId;
+        this.artefaktId = artefaktId;
+        this.actualHours = actualHours;
+    }
+    addHours(hours){
+        const n = Number(hours);
+        this.actualHours += n;
+    }
+    toObject(){
+        return {
+            projektId: this.projektId,
+            artefaktId: this.artefaktId,
+            actualHours: this.actualHours
+        };
+    }
+    static fromObject(obj){
+        return new ProjektArtefakt(obj.projektId, obj.artefaktId, obj.actualHours || 0);
+    }
 }

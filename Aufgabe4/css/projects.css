@@ -8,14 +8,11 @@
 
 .filter {
     display: inline;
-    opacity: 0;
+
     width: 50px;
     height: 50px;
 }
 
-.filter:hover {
-    opacity: 1;
-}
 
 footer {
     height: auto;

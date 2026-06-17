@@ -1,25 +1,24 @@
-class Artefakt{
-    titel;
-    shortDescription;
-    referenz;
-    estimetedWork;
-    constructor(titel,shortDescription,referenz,estimetedWork){
+export class Artefakt{
+    constructor(titel,shortDescription,referenz,estimetedWork, id){
         this.titel = titel;
         this.shortDescription = shortDescription;
         this.referenz = referenz;
         this.estimetedWork = estimetedWork;
+        this.id = id;
     }
 }
 
-function getFormData(){
+export function getFormData(){
     return {
         taskname: document.getElementById('taskname')?.value.trim() ?? '',
         time: document.getElementById('time')?.value.trim() ?? ''
     };
 }
 
-function addTask() {
+export function addTask() {
     const { taskname, time } = getFormData();
+    console.log(taskname);
+    console.log(time);
 
     if (!taskname || !time) {
         alert('Bitte Task Name und Zeit eingeben.');
@@ -29,9 +28,9 @@ function addTask() {
     const tbody = document.querySelector('.worktime table tbody');
     const row = document.createElement('tr');
 
-    const taskCell = document.createElement('th');
+    const taskCell = document.createElement('td');
     taskCell.textContent = taskname;
-    const timeCell = document.createElement('th');
+    const timeCell = document.createElement('td');
     timeCell.textContent = `${time}h`;
 
     row.appendChild(taskCell);
@@ -46,7 +45,7 @@ function addTask() {
     return false;
 }
 
-function updateOverall() {
+export function updateOverall() {
     const rows = document.querySelectorAll('.worktime table tbody tr');
     let total = 0;
 
@@ -65,3 +64,15 @@ function updateOverall() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('taskForm');
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            // 1. Neuladen verhindern
+            event.preventDefault(); 
+            
+            // 2. Deine Funktion ausführen
+            addTask(); 
+        });
+    }
+});

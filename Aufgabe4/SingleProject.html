@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/SingleProject.css" />
-    <script src="javaScript/models.js/Artefakt.js"></script>
+    <script type="module" src="javaScript/models.js/Artefakt.js"></script>
     <title>Current Project</title>
   </head>
   <body>
@@ -119,7 +119,7 @@
     <div>
       <fieldset class="addTask">
         <legend>Task hinzufügen</legend>
-        <form class="" onsubmit="return addTask();">
+        <form id="taskForm">
           <label for="taskname">Task Name</label>
           <input type="text" id="taskname" name="taskname" />
 
