@@ -1,34 +1,41 @@
 import { Project, Artefakt, Task } from "./models/class_stucture.js";
 import { Referenz } from "./models/references.js";
 
-const projectdata_url = 'https://scl.fh-bielefeld.de/WBA/projects.json';
-const tasks_url = 'https://scl.fh-bielefeld.de/WBA/tasks.json';
-const artefacts_data = 'https://scl.fh-bielefeld.de/WBA/artefacts.json';
-const send_project_data_to = 'https://scl.fh-bielefeld.de/WBA/projectsAPI';
+//Lokale Dateien, weil ich sonst einen CORS Fehler bekomme
+const projectdata_url = './ApiData/projects.json';
+const tasks_url = './ApiData/tasks.json';
+const artefacts_data = './ApiData/artefacts.json';
+
+const send_project_data_to = 'https://scl.fh-bielefeld.de/WBA/projectsAPI'; //Gibt immer 404
+const simulate_success_url = 'https://scl.fh-bielefeld.de/WBA/projects.json'; //Gibt 200 OK, da lokale Datei
 
 //node --use-system-ca
 async function get_Project_data(url) {
-    let request_data = await fetch(url)
-    .catch(function(err){
-        console.log("Error while fetching the Data from api: " , url);
-    });
-    let ret = await request_data.json();
-    return ret;
+    try {
+            let request_data = await fetch(url);
+            if (!request_data.ok) {
+                throw new Error(`Failed to fetch: ${request_data.status}`);
+            }
+            return await request_data.json();
+        } catch (err) {
+            console.error("Error while fetching the Data from api: ", url, err);
+            return [];
+        }
 }
 
 const project_data = await get_Project_data(projectdata_url);
-//console.log('------------- PROJECT DATA -----------------')
-//console.log(project_data);
-//console.log('')
+console.log('------------- PROJECT DATA -----------------')
+console.log(project_data);
+console.log('')
 
 const task_data = await get_Project_data(tasks_url);
-//console.log('------------- TASKS -----------------')
-//console.log(task_data);
-//console.log('')
+console.log('------------- TASKS -----------------')
+console.log(task_data);
+console.log('')
 
 const artefact_data = await get_Project_data(artefacts_data);
-//console.log('------------- ARTEFACTS -----------------')
-//console.log(artefact_data);
+console.log('------------- ARTEFACTS -----------------')
+console.log(artefact_data);
 
 function create_Project_Classes(fetched_data) {
 
@@ -68,12 +75,12 @@ function create_Taks_Classes(fetched_data) {
 }
 
 const [artefact_name, refrences_task_id] = create_Artefact_Classes(artefact_data);
-//console.log(refrences_task_id);
+console.log(refrences_task_id);
 
 const [task_name, project_id] = create_Taks_Classes(task_data);
-//console.log(project_id);
+console.log(project_id);
 
-async function post_data(url, data){
+export async function post_data(url, data){
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -97,13 +104,13 @@ async function post_data(url, data){
      } 
 }
 
-async function checkBackupReaload() {
+export async function checkBackupReaload() {
     const savedData = localStorage.getItem('offline_data');
 
     if (savedData){
         const dataToSend = JSON.parse(savedData);
 
-        const success = await post_data(send_project_data_to, dataToSend);
+        const success = await post_data(simulate_success_url, dataToSend);
 
         if (success){
             localStorage.removeItem('offline_data');
@@ -114,6 +121,16 @@ async function checkBackupReaload() {
         }
     }
 }
-await checkBackupReaload();
-await post_data(send_project_data_to, project_data);
-await checkBackupReaload();
+
+document.getElementById('btn-post').addEventListener('click', async () => {
+    console.log("Send Data");
+    await post_data(send_project_data_to, project_data);
+})
+
+document.getElementById('btn-backup').addEventListener('click', async() => {
+    console.log("Check localstorage");
+    await checkBackupReaload();
+})
+
+//Automatisches Neuladen
+checkBackupReaload();
