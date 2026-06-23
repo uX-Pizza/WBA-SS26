@@ -1,6 +1,11 @@
 import { Project, Artefakt, Task } from "./models/class_stucture.js";
 import { Referenz } from "./models/references.js";
 
+//Links aus der Aufgabe:
+const project_data_server_url = 'https://scl.fh-bielefeld.de/WBA/projects.json';
+const task_data_server_url = 'https://scl.fh-bielefeld.de/WBA/tasks.json';
+const artefacts_data_server_url = 'https://scl.fh-bielefeld.de/WBA/artefacts.json';
+
 //Lokale Dateien, weil ich sonst einen CORS Fehler bekomme
 const projectdata_url = './ApiData/projects.json';
 const tasks_url = './ApiData/tasks.json';
