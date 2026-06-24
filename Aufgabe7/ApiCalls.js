@@ -7,9 +7,9 @@ const task_data_server_url = 'https://scl.fh-bielefeld.de/WBA/tasks.json';
 const artefacts_data_server_url = 'https://scl.fh-bielefeld.de/WBA/artefacts.json';
 
 //Lokale Dateien, weil ich sonst einen CORS Fehler bekomme
-const projectdata_url = './ApiData/projects.json';
-const tasks_url = './ApiData/tasks.json';
-const artefacts_data = './ApiData/artefacts.json';
+const projectdata_url = 'ApiData/projects.json';
+const tasks_url = 'ApiData/tasks.json';
+const artefacts_data = 'ApiData/artefacts.json';
 
 const send_project_data_to = 'https://scl.fh-bielefeld.de/WBA/projectsAPI'; //Gibt immer 404
 const simulate_success_url = 'https://scl.fh-bielefeld.de/WBA/projects.json'; //Gibt 200 OK, da lokale Datei
@@ -28,17 +28,17 @@ async function get_Project_data(url) {
         }
 }
 
-const project_data = await get_Project_data(projectdata_url);
+const project_data = await get_Project_data(project_data_server_url);
 console.log('------------- PROJECT DATA -----------------')
 console.log(project_data);
 console.log('')
 
-const task_data = await get_Project_data(tasks_url);
+const task_data = await get_Project_data(task_data_server_url);
 console.log('------------- TASKS -----------------')
 console.log(task_data);
 console.log('')
 
-const artefact_data = await get_Project_data(artefacts_data);
+const artefact_data = await get_Project_data(artefacts_data_server_url);
 console.log('------------- ARTEFACTS -----------------')
 console.log(artefact_data);
 
@@ -71,7 +71,7 @@ function create_Taks_Classes(fetched_data) {
     let tasks = [];
     let references = [];
     for (let key of fetched_data){
-        let task_class = new Task(key['id'], key['name'], key['shortdesc'], key['longdesc'],key['logourl'], key['maintainer'], key['start'] ,key['end']);
+        let task_class = new Task(key['id'], key['name'], key['shortdesc'], key['project']);
         let project_referenz = new Referenz(key['name'], key['project'])
         tasks.push(task_class);
         references.push(project_referenz);
@@ -138,4 +138,4 @@ document.getElementById('btn-backup').addEventListener('click', async() => {
 })
 
 //Automatisches Neuladen
-checkBackupReaload();
+//checkBackupReaload();
