@@ -138,4 +138,4 @@ document.getElementById('btn-backup').addEventListener('click', async() => {
 })
 
 //Automatisches Neuladen
-//checkBackupReaload();
+checkBackupReaload();
