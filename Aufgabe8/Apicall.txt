@@ -1,0 +1,1 @@
+http://localhost:8080/SmartDataLyser/smartdatalyser/statistic/percentile?collection=project&column=id&from=2026-01-01 00:00:00&to=2026-12-31 23:59:59&percentile=0.5
