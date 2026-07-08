@@ -32,11 +32,11 @@ async function fetchMinMaxSql() {
     }
 }
 
-const javadata = fetchMinMaxJava();
+const javadata = await fetchMinMaxJava();
 
 console.log("Java Data: ", javadata);
 
-const sqldata = fetchMinMaxSql();
+const sqldata = await fetchMinMaxSql();
 
 console.log("Sql Data" ,sqldata);
 

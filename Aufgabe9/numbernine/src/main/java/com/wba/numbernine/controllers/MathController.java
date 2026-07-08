@@ -20,13 +20,20 @@ public class MathController {
 
     @GetMapping("/minmaxspanjava")
     public Map<String, Integer> minmaxspan(){
+       int min = 0;
+       int max = 0;
+       int span = 0;
 
-        Artefact minArtefact = databaseConnection.findminArtefacttime();
-        Artefact maxArtefact = databaseConnection.findmaxArtefacttime();
+        try {
+            Artefact minArtefact = databaseConnection.findminArtefacttime();
+            Artefact maxArtefact = databaseConnection.findmaxArtefacttime();
 
-        int min = minArtefact.getPlanedtime();
-        int max = maxArtefact.getPlanedtime();
-        int span = max- min;
+             min = minArtefact.getPlanedtime();
+             max = maxArtefact.getPlanedtime();
+             span = max- min;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         return Map.of("min", min, "max", max, "span", span);
     }

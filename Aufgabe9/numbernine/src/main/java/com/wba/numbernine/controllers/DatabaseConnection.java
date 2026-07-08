@@ -1,6 +1,7 @@
 package com.wba.numbernine.controllers;
 
 import com.wba.numbernine.DataStruktures.Artefact;
+import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,32 +21,44 @@ public class DatabaseConnection {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public Artefact findminArtefacttime(){
+    public Artefact findminArtefacttime() throws Exception {
 
-        String sql = "SELECT id, titel, planedtime FROM artefakt ORDER BY planedtime ASC LIMIT 1";
+        try {
+            String sql = "SELECT id, titel, planedtime FROM artefakt ORDER BY planedtime ASC LIMIT 1";
 
-        RowMapper<Artefact> artefactRowMapper = (rs, rowNum) -> new Artefact(
-                rs.getString("id"),
-                rs.getString("titel"),
-                rs.getInt("planedtime")
-        );
+            RowMapper<Artefact> artefactRowMapper = (rs, rowNum) -> new Artefact(
+                    rs.getString("id"),
+                    rs.getString("titel"),
+                    rs.getInt("planedtime")
+            );
 
-        return jdbcTemplate.queryForObject(sql, artefactRowMapper);
+            return jdbcTemplate.queryForObject(sql, artefactRowMapper);
+        } catch (DataAccessException e){
+            throw new Exception("Database Connection faild");
+        }
     }
-    public Artefact findmaxArtefacttime(){
+    public Artefact findmaxArtefacttime() throws Exception {
 
-        String sql = "SELECT id, titel, planedtime FROM artefakt ORDER BY planedtime DESC LIMIT 1";
+        try {
+            String sql = "SELECT id, titel, planedtime FROM artefakt ORDER BY planedtime DESC LIMIT 1";
 
-        RowMapper<Artefact> artefactRowMapper = (rs, rowNum) -> new Artefact(
-                rs.getString("id"),
-                rs.getString("titel"),
-                rs.getInt("planedtime")
-        );
+            RowMapper<Artefact> artefactRowMapper = (rs, rowNum) -> new Artefact(
+                    rs.getString("id"),
+                    rs.getString("titel"),
+                    rs.getInt("planedtime")
+            );
 
-        return jdbcTemplate.queryForObject(sql, artefactRowMapper);
+            return jdbcTemplate.queryForObject(sql, artefactRowMapper);
+        }
+        catch (DataAccessException e){
+            throw new Exception("Database Error");
+        }
+
+
+
     }
 
-    public int calcSpanInJava(){
+    public int calcSpanInJava() throws Exception {
         Artefact max = findmaxArtefacttime();
         Artefact min = findminArtefacttime();
 
@@ -54,14 +67,29 @@ public class DatabaseConnection {
 
     public Map<String, Object> calcMinMaxSpanSQL(){
 
-        String sql = "SELECT MIN(planedtime) as min_val, MAX(planedtime) AS max_val, MAX(planedtime) - MIN(planedtime) as span_val FROM artefakt";
+        try {
+            String sql = "SELECT MIN(planedtime) as min_val, MAX(planedtime) AS max_val, MAX(planedtime) - MIN(planedtime) as span_val FROM artefakt";
 
-        return jdbcTemplate.queryForMap(sql);
+            return jdbcTemplate.queryForMap(sql);
+        }
+        catch (DataAccessException e){
+
+            return Map.of(
+                    "error", "Database accsess faild"
+            );
+        }
     }
 
     public Map<String, Object> getProject(String id){
-        String sql = "SELECT * FROM project WHERE id = ?";
+        try {
+            String sql = "SELECT * FROM project WHERE id = ?";
 
-        return jdbcTemplate.queryForMap(sql, id);
+            return jdbcTemplate.queryForMap(sql, id);
+        }
+        catch (DataAccessException e){
+            return Map.of("error", "Project not found"
+                );
+        }
+
     }
 }

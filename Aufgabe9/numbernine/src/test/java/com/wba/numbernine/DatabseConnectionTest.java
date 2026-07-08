@@ -17,7 +17,7 @@ public class DatabseConnectionTest {
     private DatabaseConnection databaseConnection;
 
     @Test
-    void testFindMaxArtefact(){
+    void testFindMaxArtefact() throws Exception {
 
         Artefact maxArtefact = databaseConnection.findmaxArtefacttime();
 

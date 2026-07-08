@@ -20,6 +20,9 @@ INSERT INTO artefakt (id, titel, shortdesc, longdesc, planedtime, realtime, task
 VALUES ('art-02', 'Artefakt1', 'Artefakt1', 'Longdescription Artefakt', 120, 90, 'task-02'); -- Eigene ID 'art-02' und Verweis auf 'task-02'
 
 
+INSERT INTO artefakt (id, titel, shortdesc, longdesc, planedtime, realtime, task_id)
+VALUES ('art-04', 'ArtefaktNew', 'ArtefaktNEw', 'Longdescription Artefakt', 50, 55, 'task-03'); -- Eigene ID 'art-02' und Verweis auf 'task-02'
+
 -- ==================== PROJEKT 3 ====================
 INSERT INTO project (id, name, shortdesc, longdesc, logourl, maintainer, start_date, end_date)
 VALUES ('proj-03', 'Webseite', 'Eigene Webseite', 'Hier soll eine Webseite erstellen', 'http://logo.de', 'Michael', '2026-04-01', '2026-07-31');
