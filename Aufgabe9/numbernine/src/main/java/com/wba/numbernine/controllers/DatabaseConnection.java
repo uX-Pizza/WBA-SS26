@@ -1,6 +1,7 @@
 package com.wba.numbernine.controllers;
 
 import com.wba.numbernine.DataStruktures.Artefact;
+import com.wba.numbernine.DataStruktures.Project;
 import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 
 @Repository
@@ -90,6 +90,19 @@ public class DatabaseConnection {
             return Map.of("error", "Project not found"
                 );
         }
+    }
 
+    public List<Map<String, Object>> getAllProject() {
+        try {
+            String sql = "SELECT * FROM project";
+
+            // queryForList(sql) liefert direkt List<Map<String, Object>> zurück!
+            return jdbcTemplate.queryForList(sql);
+        }
+        catch (DataAccessException e) {
+            // Logge den Fehler auf der Konsole, damit du siehst, WAS schiefgeht!
+            System.err.println("Datenbankfehler: " + e.getMessage());
+            return List.of(); // Besser eine leere Liste statt null zurückgeben
+        }
     }
 }

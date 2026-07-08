@@ -32,6 +32,27 @@ async function fetchMinMaxSql() {
     }
 }
 
+async function fetchAllProjects() {
+    try {
+        const response = await fetch('http://localhost:8080/api/statistic/getAllProjects');
+
+        if (!response.ok){
+            throw new Error('Fehler: ', response.status);
+        }
+
+        const data = await response.json();
+
+        return data;
+    }
+    catch(error) {
+        console.error("Fehler", error);
+    }
+}
+
+const projects = await fetchAllProjects();
+console.log(projects)
+
+
 const javadata = await fetchMinMaxJava();
 
 console.log("Java Data: ", javadata);
@@ -72,20 +93,30 @@ const project = {
     end_date: "2026-07-09"
 };
 
-async function verarbeiteProjektdaten() {
+async function verarbeiteProjektdaten(projekt) {
     
-    const statistik = await fetchMinMaxSql();
+    // const statistik = await fetchMinMaxSql(projekt);
 
-    if (statistik) {
+    // if (statistik) {
         
-        project.min = statistik.min_val;
-        project.max = statistik.max_val;
-        project.span = statistik.span_val;
+    //     project.min = statistik.min_val;
+    //     project.max = statistik.max_val;
+    //     project.span = statistik.span_val;
         
-        project.projektdauer = calcTimeInDays(project.start_date, project.end_date);
+    //     project.projektdauer = calcTimeInDays(project.start_date, project.end_date);
 
-        console.log(project);
-    }
+    //     console.log(project);
+    // }
+    
+    console.log(projekt.start_date);
+    console.log(projekt.end_date);
+    projekt.dauer = calcTimeInDays(projekt.start_date, projekt.end_date);
+
+    console.log(projekt);
+
 }
 
-await verarbeiteProjektdaten();
+for (let key of projects) {
+    // console.log(key);
+    await verarbeiteProjektdaten(key);
+}
