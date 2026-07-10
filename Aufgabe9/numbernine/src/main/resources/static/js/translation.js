@@ -1,5 +1,5 @@
-import { de } from "./language/de.js";
-import { en } from "./language/en.js";
+import { de } from "../../../../../../../Aufgabe4/javaScript/language/de.js";
+import { en } from "../../../../../../../Aufgabe4/javaScript/language/en.js";
 
 const languages = { en, de};
 

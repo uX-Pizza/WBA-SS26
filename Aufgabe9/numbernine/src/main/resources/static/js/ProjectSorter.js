@@ -1,5 +1,5 @@
-import { projects } from "./Data.js";
-import { relations } from "./Data.js";
+import { projects } from "../../../../../../../Aufgabe4/javaScript/Data.js";
+import { relations } from "../../../../../../../Aufgabe4/javaScript/Data.js";
 
 
 export class ProjectSorter {
