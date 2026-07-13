@@ -96,13 +96,26 @@ public class DatabaseConnection {
         try {
             String sql = "SELECT * FROM project";
 
-            // queryForList(sql) liefert direkt List<Map<String, Object>> zurück!
+
             return jdbcTemplate.queryForList(sql);
         }
         catch (DataAccessException e) {
-            // Logge den Fehler auf der Konsole, damit du siehst, WAS schiefgeht!
+
             System.err.println("Datenbankfehler: " + e.getMessage());
-            return List.of(); // Besser eine leere Liste statt null zurückgeben
+            return List.of();
         }
+    }
+
+    public List<Map<String, Object>> getNewest(){
+        try {
+            String sql = "SELECT * FROM project ORDER BY id DESC LIMIT 3";
+            //System.out.println(jdbcTemplate.queryForList(sql));
+            return jdbcTemplate.queryForList(sql);
+        }
+        catch (DataAccessException e){
+            System.err.println(("Datenbankfehler " + e.getMessage()));
+            return List.of();
+        }
+
     }
 }

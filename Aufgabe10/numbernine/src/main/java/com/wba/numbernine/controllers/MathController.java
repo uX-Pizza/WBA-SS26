@@ -44,16 +44,4 @@ public class MathController {
 
         return databaseConnection.calcMinMaxSpanSQL();
     }
-
-    @GetMapping("/getProject")
-    public Map<String, Object> getProject(@RequestParam String id){
-
-        return databaseConnection.getProject(id);
-    }
-
-    @GetMapping("/getAllProjects")
-    public List<Map<String, Object>> getAllProject(){
-
-        return databaseConnection.getAllProject();
-    }
 }

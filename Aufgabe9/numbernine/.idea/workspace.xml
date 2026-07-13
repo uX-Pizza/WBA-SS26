@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="00519aab-4602-457f-8f9d-5f9d9ad6c2cb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Aufgabe4/javaScript/language/de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Aufgabe4/javaScript/language/en.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaScript/ApiShow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaScript/models/class_stucture.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaScript/models/projects.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaScript/models/references.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wba/numbernine/DataStruktures/Artefact.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wba/numbernine/DataStruktures/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wba/numbernine/NumbernineApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wba/numbernine/controllers/DatabaseConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wba/numbernine/controllers/MathController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/content/pictures/Atlassian_logo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/content/pictures/header1280x133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/content/pictures/header1920x200.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/content/pictures/header320x34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/content/pictures/header640x67.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/content/pictures/home-button-svgrepo-com.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/content/videos/space_video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/NewProject.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/SingleProject.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/projects.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/NewProject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/Projects.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/Register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/SendToPage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/SingleProject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/ProjectSorter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/translation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wba/numbernine/DatabseConnectionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wba/numbernine/NumbernineApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Michaelkolle&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/uX-Pizza/WBA-SS26.git&quot;,
+    &quot;accountId&quot;: &quot;55402332-871f-40b4-bc86-56f64b413a65&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="3GKFite0ekVlivbnqYhINTh7Pxm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Aufgabe10&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/michaelkolle/Documents/Uni/Semester4/WebbasierteAnwendungen/WBA-SS26/Aufgabe9/numbernine&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00519aab-4602-457f-8f9d-5f9d9ad6c2cb" name="Changes" comment="" />
+      <created>1783712484284</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1783712484284</updated>
+    </task>
+    <servers />
+  </component>
+</project>
