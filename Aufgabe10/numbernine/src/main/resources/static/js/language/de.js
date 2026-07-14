@@ -3,5 +3,12 @@ export const de = {
     menu: "Menü",
     shortDescription: "Kurzbeschreibung",
     login: "Anmelden",
-    backToTop: "Zum Anfang"
+    register: "Registrieren",
+    newProject: "Neues Projekt",
+    openProjects: "Projekt öffnen",
+    projectDetails: "Zu den Projektdetails",
+    backToTop: "Zum Anfang",
+    welcomeToOurSite: "Wilkommen auf unserer Seite",
+    passwort:"Passwort",
+    userName:"Benutzername"
 };

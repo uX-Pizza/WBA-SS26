@@ -143,6 +143,23 @@ header picture img {
     color: #87CEFA;
 }
 
+.language-switcher {
+    display: block;
+    margin-top: 0.75rem;
+    color: #87CEFA;
+    font-weight: 600;
+}
+
+#language-switcher {
+    width: 100%;
+    max-width: 260px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: white;
+    color: black;
+}
+
 footer {
     width: 100%;
     margin: 0;

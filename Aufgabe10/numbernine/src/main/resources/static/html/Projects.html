@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/projects.css" />
     <script type="module" src="../js/appfilter.js"></script>
     <script src="../js/Login.js" defer></script>
+    <script type="module" src="../js/translation.js"></script>
     <title>Projects</title>
   </head>
   <body>
@@ -39,7 +40,7 @@
           />
         </picture>
         <fieldset class="login-header">
-          <legend>Anmelden</legend>
+          <legend data-i18n="login">Anmelden</legend>
           <form class="login-form" action="Projects.html">
             <label for="benutzername">Benutzername</label>
             <input type="text" id="benutzername" name="benutzername" />
@@ -47,9 +48,13 @@
             <label for="passwort">Passwort</label>
             <input type="password" id="passwort" name="passwort" />
 
-            <button class="button" type="submit">Anmelden</button>
+            <button class="button" type="submit" data-i18n="login">
+              Anmelden
+            </button>
           </form>
-          <a class="login-register" href="Register.html">Registrieren</a>
+          <a class="login-register" href="Register.html" data-i18n="register"
+            >Registrieren</a
+          >
         </fieldset>
       </header>
     </div>
@@ -67,10 +72,10 @@
     <div class="filter">
       <form id="filterForm">
         <p>Filter Optionen</p>
-        <input type="radio" id="date" name="filter" value="Datum">
-        <label for="date">Datum</label><br>
-        <input type="radio" id="time" name="filter" value="Zeit">
-        <label for="time">Zeit</label><br>
+        <input type="radio" id="date" name="filter" value="Datum" />
+        <label for="date">Datum</label><br />
+        <input type="radio" id="time" name="filter" value="Zeit" />
+        <label for="time">Zeit</label><br />
       </form>
     </div>
     <div class="projects-container">
@@ -86,17 +91,29 @@
           <tr>
             <td class="title">Project1</td>
             <td>Spacestation</td>
-            <td><a href="SingleProject.html">Link zur Projektseite</a></td>
+            <td>
+              <a href="SingleProject.html" data-i18n="projectDetails"
+                >Zu den Projektdetails</a
+              >
+            </td>
           </tr>
           <tr>
             <td class="title">Project2</td>
             <td>Bildverarbeitung</td>
-            <td><a href="SingleProject.html">Link zur Projektseite</a></td>
+            <td>
+              <a href="SingleProject.html" data-i18n="projectDetails"
+                >Zu den Projektdetails</a
+              >
+            </td>
           </tr>
           <tr>
             <td class="title">Project3</td>
             <td>Webseite</td>
-            <td><a href="SingleProject.html">Link zur Projektseite</a></td>
+            <td>
+              <a href="SingleProject.html" data-i18n="projectDetails"
+                >Zu den Projektdetails</a
+              >
+            </td>
           </tr>
         </tbody>
       </table>
