@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -117,5 +118,53 @@ public class DatabaseConnection {
             return List.of();
         }
 
+    }
+
+    public String generateNextId() {
+        // 1. Suche die höchste ID in der Tabelle
+        String sql = "SELECT MAX(id) FROM project";
+        String maxId = jdbcTemplate.queryForObject(sql, String.class);
+
+        int nextNumber = 1; // Default, falls Tabelle leer ist
+
+        if (maxId != null && maxId.startsWith("proj-")) {
+            try {
+                // Extrahiere den Teil nach "proj-"
+                String numberPart = maxId.substring(5);
+                nextNumber = Integer.parseInt(numberPart) + 1;
+            } catch (NumberFormatException e) {
+                // Fallback, falls ID-Format nicht passt
+            }
+        }
+
+        // 2. Formatierung auf "proj-01" (z.B. %02d sorgt für führende Null)
+        return String.format("proj-%02d", nextNumber);
+    }
+
+    public String insertProject(String name, String shortdesc, String longdesc,
+                              String logourl, String maintainer, String start_date, String end_date) {
+
+        String newId = generateNextId();
+
+        String sql = "INSERT INTO project (id, name, shortdesc, longdesc, logourl, maintainer, start_date, end_date) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        Date startDate = null;
+        Date endDate = null;
+
+        try {
+            if (start_date != null && !start_date.isBlank()) {
+                startDate = Date.valueOf(start_date);
+            }
+            if (end_date != null && !end_date.isBlank()) {
+                endDate = Date.valueOf(end_date);
+            }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Ungültiges Datumsformat: " + e.getMessage(), e);
+        }
+
+        jdbcTemplate.update(sql, newId, name, shortdesc, longdesc, logourl, maintainer, startDate, endDate);
+
+        return newId;
     }
 }

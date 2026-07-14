@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/SingleProject.css">
     <link rel="stylesheet" href="../css/NewProject.css">
-        <script src="../js/Login.js" defer></script>
-    <script type="module" src="../js/translation.js"></script>
+    <script src="../js/Login.js" defer></script>
+    <script type="module" src="../js/translation.js" defer></script>
+    <script src="../js/createNewProject.js" defer></script>
 </head>
 <body>
     <div>
@@ -56,7 +57,7 @@
                         <input type="text" id="projekt_name" name="projekt_name">
 
                         <label for="logoInput" class="logo-picker">
-                            <img src="../content/pictures/placeholder.png" alt="Logo Placeholder">
+                            <img src="../content/pictures/header320x34.png" alt="Logo Placeholder">
                         </label>
                         <input type="file" id="logoInput" name="logo" accept="image/*" />
                     </div>
@@ -82,15 +83,9 @@
                         <textarea id="langbeschreibung" name="langbeschreibung" rows="6"></textarea>
                     </div>
 
-                    <div class="form-row goals">
-                        <div>
-                            <label for="ziel1">Projektziel 1</label>
-                            <input type="text" id="ziel1" name="ziel1">
-                        </div>
-                        <div>
-                            <label for="ziel2">Projektziel 2</label>
-                            <input type="text" id="ziel2" name="ziel2">
-                        </div>
+                    <div class="form-row fullwidth">
+                        <label for="maintainer">Maintainer</label>
+                        <input type="text" id="maintainer" name="maintainer" />
                     </div>
 
                     <div class="form-row">

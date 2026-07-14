@@ -12,6 +12,7 @@
     <script type="module" src="../js/Artefakt.js"></script>
     <script src="../js/Login.js" defer></script>
     <script type="module" src="../js/translation.js"></script>
+    <script src="../js/singleProject.js" defer></script>
     <title>Current Project</title>
   </head>
   <body>
@@ -78,46 +79,25 @@
         />
       </div>
 
-      <section id="starting_point">
-        <h1>Projekt 1</h1>
-        <p>Projektleiter: Michael</p>
-      </section>
+    <section id="starting_point">
+      <h1 id="projectTitle">Projekt wird geladen...</h1>
+      <p id="projectMaintainer">Projektleiter wird geladen...</p>
+    </section>
     </div>
 
     <nav class="menu">
-      <ul>
-        <li>
-          <a href="#starting_point">Start</a>
-        </li>
-        <li>
-          <a href="#kurzbeschreibung">Kurzbeschreibung</a>
-        </li>
-        <li>
-          <a href="#langbeschreibung">Langbeschreibung</a>
-        </li>
-        <li>
-          <a href="#ziele">Ziele</a>
-        </li>
-      </ul>
+      <div id="tocMenu">Menü wird geladen...</div>
     </nav>
 
     <section id="kurzbeschreibung">
       <h1>Kurzbeschreibung</h1>
-      <p>Hier steht eine Kurzbeschreibung</p>
+      <p id="projectShortDesc">Wird geladen...</p> 
     </section>
 
     <section id="langbeschreibung">
-      <h1>Langbeschreibung</h1>
-      <p>Hier steht eine lange Langbeschreibung mit immens viel Inhalt</p>
+      <div id="projectLongDesc">Lade Langbeschreibung...</div>
     </section>
 
-    <section id="ziele">
-      <h1>Ziele</h1>
-      <ol>
-        <li>Ziel: Maximaler Return</li>
-        <li>Ziel: Minimaler Zeitaufwand</li>
-      </ol>
-    </section>
     <div>
       <fieldset class="addTask">
         <legend>Task hinzufügen</legend>
@@ -152,35 +132,28 @@
     </section>
 
     <section class="comments">
+      <div id="commentList" style="margin-bottom: 20px;"></div> 
+
       <fieldset class="comment-wrapper">
         <legend size="6">Kommentar hinzufügen</legend>
 
-        <form action="SendToPage.html" class="comment-form">
+        <form id="commentForm" class="comment-form">
+          
           <div class="flex-pair">
             <label for="name">Dein Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Gib deinen Namen ein"
-            />
+            <input type="text" name="name" id="name" placeholder="Gib deinen Namen ein" />
           </div>
 
           <div class="flex-pair">
-            <label for="comment">Dein Kommentar: </label>
-            <input
-              type="number"
-              name="comment"
-              min="1"
-              max="5"
-              id="comment"
-              placeholder="Gibt deinen Kommentar von 1-5 ein"
-            />
+            <label for="commentInput">Dein Kommentar: </label>
+            <input type="text" name="comment" id="commentInput" placeholder="Gib deinen Kommentar ein" required />
           </div>
           <div>
             <input type="submit" value="Kommentar abschicken" />
           </div>
         </form>
+      </fieldset>
+    </section>
       </fieldset>
     </section>
 
@@ -199,6 +172,5 @@
         </section>
       </div>
     </footer>
-    <script src="../js/Artefakt.js"></script>
   </body>
 </html>

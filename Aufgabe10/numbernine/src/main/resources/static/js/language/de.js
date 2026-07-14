@@ -9,6 +9,6 @@ export const de = {
     projectDetails: "Zu den Projektdetails",
     backToTop: "Zum Anfang",
     welcomeToOurSite: "Wilkommen auf unserer Seite",
-    passwort:"Passwort",
+    password:"Passwort",
     userName:"Benutzername"
 };

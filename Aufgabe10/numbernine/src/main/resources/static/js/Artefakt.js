@@ -68,10 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('taskForm');
     if (form) {
         form.addEventListener('submit', function(event) {
-            // 1. Neuladen verhindern
+           
             event.preventDefault(); 
             
-            // 2. Deine Funktion ausführen
+           
             addTask(); 
         });
     }

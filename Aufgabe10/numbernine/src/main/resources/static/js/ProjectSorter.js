@@ -1,75 +1,66 @@
-import { projects } from "../../../../../../../Aufgabe4/javaScript/Data.js";
-import { relations } from "../../../../../../../Aufgabe4/javaScript/Data.js";
-
-
 export class ProjectSorter {
-    constructor(projects){
+    constructor(projects) {
         this.projects = projects;
     }
 
-    sortbydate(){
-        const getComparableValue = (dateString) => {
-        const [day, month, year] = dateString.split('.');
-
-        return Number(year + month + day); 
-        };
-    for (let i = 0; i < this.projects.length; i++) {
-        
-        
-        for (let j = 0; j < this.projects.length - 1 - i; j++) {
-            
-           
-            const [dayA, monthA, yearA] = this.projects[j].startDate.split('.');
-            const dateA = new Date(yearA, monthA - 1, dayA);
-
-   
-            const [dayB, monthB, yearB] = this.projects[j + 1].startDate.split('.');
-            const dateB = new Date(yearB, monthB - 1, dayB);
-
-
-            if (dateA > dateB) {
-            
-                let temp = this.projects[j];
-                this.projects[j] = this.projects[j + 1];
-                this.projects[j + 1] = temp;
+    getFirstValue(project, keys) {
+        for (const key of keys) {
+            const value = project?.[key];
+            if (value !== undefined && value !== null && value !== "") {
+                return value;
             }
         }
-    }
-    return this.projects;
+        return "";
     }
 
-    calc_worktime(projectName) {
-        let time = 0;
-    
-        for (let relation of relations) {
-            
-            if (relation.projektId === projectName) {
-                time += Number(relation.actualHours);
+    parseDate(value) {
+        if (!value) {
+            return new Date(0);
+        }
+
+        if (typeof value === "string") {
+            const trimmed = value.trim();
+            const isoMatch = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+            if (isoMatch) {
+                const [, year, month, day] = isoMatch;
+                return new Date(Number(year), Number(month) - 1, Number(day));
+            }
+
+            const germanMatch = trimmed.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+            if (germanMatch) {
+                const [, day, month, year] = germanMatch;
+                return new Date(Number(year), Number(month) - 1, Number(day));
             }
         }
-        
-        console.log(`Gesamtzeit für ${projectName}:`, time);
-        return time;
+
+        const date = new Date(value);
+        return Number.isNaN(date.getTime()) ? new Date(0) : date;
     }
 
-    sortbyworktime() {
-        const n = this.projects.length;
+    getDuration(project) {
+        const startValue = this.getFirstValue(project, ["start_date", "startDate", "startdatum"]);
+        const endValue = this.getFirstValue(project, ["end_date", "endDate", "deadline", "enddatum"]);
 
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n - 1 - i; j++) {
-                
-                let timeA = this.calc_worktime(this.projects[j].title);
-                let timeB = this.calc_worktime(this.projects[j + 1].title);
-                console.log(timeA);
-                console.log(timeB);
-                
-                if (timeA > timeB) {
-                    let temp = this.projects[j];
-                    this.projects[j] = this.projects[j + 1];
-                    this.projects[j + 1] = temp;
-                }
-            }
+        const startDate = this.parseDate(startValue);
+        const endDate = this.parseDate(endValue);
+
+        if (startDate.getTime() === 0 || endDate.getTime() === 0) {
+            return 0;
         }
-        return this.projects;
+
+        const diffInDays = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+        return diffInDays > 0 ? diffInDays : 0;
+    }
+
+    sortbydate() {
+        return [...this.projects].sort((a, b) => {
+            const dateA = this.parseDate(this.getFirstValue(a, ["start_date", "startDate", "startdatum"]));
+            const dateB = this.parseDate(this.getFirstValue(b, ["start_date", "startDate", "startdatum"]));
+            return dateA - dateB;
+        });
+    }
+
+    sortbyduration() {
+        return [...this.projects].sort((a, b) => this.getDuration(b) - this.getDuration(a));
     }
 }
