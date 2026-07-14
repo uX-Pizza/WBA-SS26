@@ -132,6 +132,17 @@ header picture img {
     text-decoration: underline;
 }
 
+.logout-btn{
+    flex: 0 0 320px;
+    min-width: 260px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 1rem;
+    color: #87CEFA;
+}
+
 footer {
     width: 100%;
     margin: 0;
