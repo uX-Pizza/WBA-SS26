@@ -1,6 +1,6 @@
 // Data.js
 import { Project } from "./models.js/Project.js";
-import { Artefakt } from "./models.js/Artefakt.js";
+import { Artefakt } from "../../Aufgabe10/numbernine/src/main/resources/static/js/Artefakt.js";
 import { ProjektArtefakt } from "./models.js/Relations.js";
 
 export const projects = [

@@ -1,5 +1,5 @@
 // appfilter.js
-import { projects, calc_worktime } from "./Data.js";
+import { projects, calc_worktime } from "../../../../../../../Aufgabe4/javaScript/Data.js";
 import { ProjectSorter } from "./ProjectSorter.js";
 
 // Test-Ausgaben zur Kontrolle
