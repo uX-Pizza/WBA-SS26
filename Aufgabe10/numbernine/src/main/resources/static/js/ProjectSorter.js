@@ -38,11 +38,9 @@ export class ProjectSorter {
     }
 
     getDuration(project) {
-        const startValue = this.getFirstValue(project, ["start_date", "startDate", "startdatum"]);
-        const endValue = this.getFirstValue(project, ["end_date", "endDate", "deadline", "enddatum"]);
-
-        const startDate = this.parseDate(startValue);
-        const endDate = this.parseDate(endValue);
+       
+        const startDate = this.parseDate(project?.start_date);
+        const endDate = this.parseDate(project?.end_date);
 
         if (startDate.getTime() === 0 || endDate.getTime() === 0) {
             return 0;
@@ -54,13 +52,16 @@ export class ProjectSorter {
 
     sortbydate() {
         return [...this.projects].sort((a, b) => {
-            const dateA = this.parseDate(this.getFirstValue(a, ["start_date", "startDate", "startdatum"]));
-            const dateB = this.parseDate(this.getFirstValue(b, ["start_date", "startDate", "startdatum"]));
+            const dateA = this.parseDate(a.start_date);
+            const dateB = this.parseDate(b.start_date);
             return dateA - dateB;
         });
     }
 
     sortbyduration() {
-        return [...this.projects].sort((a, b) => this.getDuration(b) - this.getDuration(a));
+       
+        return [...this.projects].sort((a, b) => {
+            return this.getDuration(b) - this.getDuration(a);
+        });
     }
 }
