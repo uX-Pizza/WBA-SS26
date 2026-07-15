@@ -42,10 +42,10 @@
         <fieldset class="login-header">
           <legend data-i18n="login">Anmelden</legend>
           <form class="login-form" action="Projects.html">
-            <label for="benutzername">Benutzername</label>
+            <label for="benutzername" data-i18n="userName">Benutzername</label>
             <input type="text" id="benutzername" name="benutzername" />
 
-            <label for="passwort">Passwort</label>
+            <label for="passwort" data-i18n="password">Passwort</label>
             <input type="password" id="passwort" name="passwort" />
 
             <button class="button" type="submit" data-i18n="login">
@@ -68,6 +68,10 @@
           height="75"
         />
       </a>
+        <select id="language-switcher" name="language-switcher">
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+        </select>
     </section>
     <div class="filter">
       <form id="filterForm">
