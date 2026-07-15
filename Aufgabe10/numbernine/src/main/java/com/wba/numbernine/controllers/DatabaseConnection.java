@@ -121,23 +121,22 @@ public class DatabaseConnection {
     }
 
     public String generateNextId() {
-        // 1. Suche die höchste ID in der Tabelle
+
         String sql = "SELECT MAX(id) FROM project";
         String maxId = jdbcTemplate.queryForObject(sql, String.class);
 
-        int nextNumber = 1; // Default, falls Tabelle leer ist
+        int nextNumber = 1; 
 
         if (maxId != null && maxId.startsWith("proj-")) {
             try {
-                // Extrahiere den Teil nach "proj-"
+          
                 String numberPart = maxId.substring(5);
                 nextNumber = Integer.parseInt(numberPart) + 1;
             } catch (NumberFormatException e) {
-                // Fallback, falls ID-Format nicht passt
+             
             }
         }
 
-        // 2. Formatierung auf "proj-01" (z.B. %02d sorgt für führende Null)
         return String.format("proj-%02d", nextNumber);
     }
 
