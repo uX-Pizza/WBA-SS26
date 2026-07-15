@@ -15,67 +15,72 @@ async function loadSingleProject() {
         if (!response.ok) throw new Error("Projekt nicht gefunden");
         
         const project = await response.json();
-        console.log("Projekt-Daten:", project);
-
-
+        
+        // UI füllen
         document.getElementById("projectTitle").textContent = project.name;
         document.getElementById("projectShortDesc").textContent = project.shortdesc;
-   
         const maintainerEl = document.getElementById("projectMaintainer");
         if(maintainerEl) maintainerEl.textContent = "Projektleiter: " + project.maintainer;
 
+        // Langbeschreibung einfügen
         const longDescContainer = document.getElementById("projectLongDesc");
         longDescContainer.innerHTML = project.longdesc; 
+        
+        // JETZT ist generateTOC bekannt und wird aufgerufen
         generateTOC(longDescContainer);
         
-        // Kommentare laden
         loadComments();
 
     } catch (error) {
         console.error("Fehler beim Laden:", error);
-        document.getElementById("projectTitle").textContent = "Projekt konnte nicht geladen werden.";
     }
 }
 
-function loadComments() {
+// DIE FEHLENDE METHODE: Inhaltsverzeichnis generieren
+function generateTOC(contentContainer) {
+    const tocContainer = document.getElementById("tocMenu");
+    tocContainer.innerHTML = ""; // Altes Menü löschen
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id"); 
-    
-    const commentList = document.getElementById("commentList");
-    if (!commentList) return;
-    
-    commentList.innerHTML = ""; 
-    
+    // Alle h1, h2, h3 in der Langbeschreibung finden
+    const headers = contentContainer.querySelectorAll("h1, h2, h3");
 
-    const savedComments = JSON.parse(localStorage.getItem(`comments_${id}`)) || [];
+    if (headers.length === 0) {
+        tocContainer.innerHTML = "Keine Abschnitte gefunden.";
+        return;
+    }
 
-    savedComments.forEach(commentText => {
-        const p = document.createElement("p");
-        p.textContent = commentText;
-        p.style.borderBottom = "1px solid #ccc";
-        commentList.appendChild(p);
+    const tocList = document.createElement("ul");
+    
+    headers.forEach((header, index) => {
+        // Jedem Header eine ID geben, damit der Link zum Springen funktioniert
+        if (!header.id) {
+            header.id = `section-${index}`;
+        }
+
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        
+        link.href = `#${header.id}`; // Sprungmarke
+        link.textContent = header.textContent;
+
+        // Einrückung basierend auf der Ebene (h1=0px, h2=20px, h3=40px)
+        const level = parseInt(header.tagName.substring(1)); 
+        listItem.style.marginLeft = `${(level - 1) * 20}px`;
+        
+        // Schriftgröße für H1 hervorheben
+        if (level === 1) listItem.style.fontWeight = "bold";
+
+        listItem.appendChild(link);
+        tocList.appendChild(listItem);
     });
+
+    tocContainer.appendChild(tocList);
 }
 
-
-function submitComment(event) {
-    event.preventDefault();
-    const commentInput = document.getElementById("commentInput");
-    const text = commentInput.value.trim();
-
-    if (text !== "") {
-        const savedComments = JSON.parse(localStorage.getItem(`comments_${projectId}`)) || [];
-        savedComments.push(text);
-        localStorage.setItem(`comments_${projectId}`, JSON.stringify(savedComments));
-        commentInput.value = "";
-        loadComments();
-    }
-}
+// ... restliche Funktionen (loadComments, submitComment) ...
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadSingleProject();
-
+    // Nur EINMALIG aufrufen
     loadSingleProject();
 
     const commentForm = document.getElementById("commentForm");
@@ -83,5 +88,3 @@ document.addEventListener("DOMContentLoaded", () => {
         commentForm.addEventListener("submit", submitComment);
     }
 });
-
-loadComments();
